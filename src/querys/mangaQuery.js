@@ -6,5 +6,5 @@ export const mangaQuery = (value) => {
   FILTER(STRSTARTS(?mangaLabel, "${value}")).
   ?manga wdt:P154 ?imagen .
 }
-LIMIT 1000`;
+LIMIT 20`;
 };

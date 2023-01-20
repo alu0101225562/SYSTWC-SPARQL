@@ -15,7 +15,11 @@ const useSPARQL = (sparqlQuery) => {
       .catch((err) => console.error(err));
   }, [sparqlQuery]);
 
-  return [res, setRes];
+  useEffect(() => {
+    console.log(res);
+  }, [res]);
+
+  return { res };
 };
 
 export default useSPARQL;

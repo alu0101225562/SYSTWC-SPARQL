@@ -12,10 +12,13 @@ import useSPARQL from "../helpers/useSPARQL";
 import { mangaQuery } from "../querys/mangaQuery";
 import SearchHome from "../partials/SearchHome";
 import Results from "../partials/Results";
+import HeroAuthors from "../partials/HeroAuthors";
+import { authorQuery } from "../querys/authorQuery";
+import ResultsAuthor from "../partials/ResultsAuthor";
 
-function Home() {
+function Authors() {
   const [text, setText] = useState("");
-  const { res } = useSPARQL(mangaQuery(text));
+  const { res } = useSPARQL(authorQuery(text));
 
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
@@ -24,9 +27,9 @@ function Home() {
       {/*  Page content */}
       <main className="flex-grow">
         {/*  Page sections */}
-        <HeroHome />
+        <HeroAuthors />
         <SearchHome setText={setText} text={text} />
-        <Results data={res} />
+        {res && <ResultsAuthor data={res} />}
       </main>
 
       {/*  Site footer */}
@@ -35,4 +38,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Authors;
